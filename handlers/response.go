@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/umangraval/Go-Mongodb-REST-boilerplate/models"
+	"github.com/duduBTW/karaokev2backend/models"
 )
 
 // AuthorizationResponse -> response authorize
@@ -42,14 +42,14 @@ func SuccessArrRespond(fields []*models.Person, writer http.ResponseWriter) {
 }
 
 // SuccessRespond -> response formatter
-func SuccessRespond(fields models.Person, writer http.ResponseWriter) {
+func SuccessRespond(fields interface{}, writer http.ResponseWriter) {
 	_, err := json.Marshal(fields)
 	type data struct {
-		Person     models.Person `json:"data"`
-		Statuscode int           `json:"status"`
-		Message    string        `json:"msg"`
+		Data       interface{} `json:"data"`
+		Statuscode int         `json:"status"`
+		Message    string      `json:"msg"`
 	}
-	temp := &data{Person: fields, Statuscode: 200, Message: "success"}
+	temp := &data{Data: fields, Statuscode: 200, Message: "success"}
 	if err != nil {
 		ServerErrResponse(err.Error(), writer)
 	}

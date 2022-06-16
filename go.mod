@@ -1,4 +1,4 @@
-module github.com/umangraval/Go-Mongodb-REST-boilerplate
+module github.com/duduBTW/karaokev2backend
 
 go 1.15
 

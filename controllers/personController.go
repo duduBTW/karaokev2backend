@@ -9,16 +9,13 @@ import (
 	"os"
 	"strings"
 
+	middlewares "github.com/duduBTW/karaokev2backend/handlers"
+	"github.com/duduBTW/karaokev2backend/models"
+	"github.com/duduBTW/karaokev2backend/validators"
 	"github.com/gorilla/mux"
-	"github.com/umangraval/Go-Mongodb-REST-boilerplate/db"
-	middlewares "github.com/umangraval/Go-Mongodb-REST-boilerplate/handlers"
-	"github.com/umangraval/Go-Mongodb-REST-boilerplate/models"
-	"github.com/umangraval/Go-Mongodb-REST-boilerplate/validators"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
-
-var client = db.Dbconnect()
 
 // Auths -> get token
 var Auths = http.HandlerFunc(func(response http.ResponseWriter, request *http.Request) {
